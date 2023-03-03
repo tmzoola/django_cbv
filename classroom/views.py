@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from classroom.models import Teacher
 
-from django.views.generic import TemplateView,FormView
+from django.views.generic import TemplateView,FormView,CreateView
 from .forms import ContactForm
 
 
@@ -11,6 +12,21 @@ class HomeView(TemplateView):
 
 class ThankYouView(TemplateView):
     template_name = 'classroom/thank_you.html'
+
+
+class TeacherCreateView(CreateView):
+    model = Teacher
+    fields = "__all__"
+    
+    success_url = "/classroom/thank_you"
+
+
+
+
+
+
+
+
 
 
 class ContactFormView(FormView):
