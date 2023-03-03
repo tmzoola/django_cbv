@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from classroom.models import Teacher
 
-from django.views.generic import TemplateView,FormView,CreateView
+from django.views.generic import TemplateView,FormView,CreateView,ListView
 from .forms import ContactForm
 
 
@@ -21,7 +21,9 @@ class TeacherCreateView(CreateView):
     success_url = "/classroom/thank_you"
 
 
-
+class TeacherListView(ListView):
+    model = Teacher
+    context_object_name = "teacher_list"
 
 
 
