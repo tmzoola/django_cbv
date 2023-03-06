@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from classroom.models import Teacher
 
-from django.views.generic import TemplateView,FormView,CreateView,ListView,DetailView,UpdateView
+from django.views.generic import TemplateView,FormView,CreateView,ListView,DetailView,UpdateView,DeleteView
 from .forms import ContactForm
 
 
@@ -37,7 +37,9 @@ class TeacherUpdateView(UpdateView):
     success_url = "/classroom/teacher_list"
 
 
-
+class TeacherDeleteView(DeleteView):
+    model = Teacher
+    success_url = "/classroom/teacher_list"
 
 
 
